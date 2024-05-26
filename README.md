@@ -67,7 +67,7 @@
     <li><code>get_order_status(order_id):</code> Returns the status of the specified order.</li>
 </ul>
 
-<h2>License</h2>
+<h2>Deployment</h2>
 <p>This project is successfully working and has been integrated on an html web page</p>
 
 </body>
