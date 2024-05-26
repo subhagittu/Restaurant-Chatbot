@@ -67,11 +67,8 @@
     <li><code>get_order_status(order_id):</code> Returns the status of the specified order.</li>
 </ul>
 
-<h2>Author</h2>
-<p>This project was developed by Dhaval Patel from Codebasics YouTube Channel.</p>
-
 <h2>License</h2>
-<p>This project is licensed under the MIT License.</p>
+<p>This project is successfully working and has been integrated on an html web page</p>
 
 </body>
 </html>
