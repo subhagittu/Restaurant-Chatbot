@@ -25,7 +25,7 @@
     <li>Uvicorn</li>
     <li>mysql-connector-python</li>
 </ul>
-
+<img width="960" alt="yt_clone" src="https://github.com/subhagittu/Restaurant-Chatbot/blob/6064a2164903fbdc21ac049cd34c4a3981f2b214/Screenshot%202024-05-26%20152401.png">
 <h2>Installation</h2>
 <ol>
     <li>Clone the repository:</li>
