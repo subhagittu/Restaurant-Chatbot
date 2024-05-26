@@ -1,62 +1,75 @@
-<h1>YouTube-Clone</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+
+<h1>Restaurant Chatbot</h1>
 <img width="960" alt="yt_clone" src="https://github.com/subhagittu/Restaurant-Chatbot/blob/4e3194e0fad994fd0fd036744aaeee564978fe61/Screenshot%202024-05-26%20150551.png">
-<br>
-This is a YouTube clone developed using React JS, Tailwind CSS, and the YouTube API provided by RapidAPI. The main objective of this project is to replicate the core features and functionalities of the popular video-sharing platform, YouTube. Users can utilize this clone to search for videos, watch them, and enjoy a seamless playback experience. By leveraging the power of React JS and Tailwind CSS, the user interface is designed to be intuitive and user-friendly, offering a familiar experience similar to YouTube. 
-<br> <br>
-<b>A live demo of the YouTube clone can be found at</b> <a href="https://indranath165-youtube-clone.netlify.app/" target="_blank">https://indranath165-youtube-clone.netlify.app/</a>.
-<h2>Features</h2>
+<p>This project is a restaurant chatbot built using FastAPI and Dialogflow. It handles various functionalities such as adding items to an order, removing items from an order, completing an order, and tracking an order status. The chatbot interacts with a MySQL database to store and retrieve order information.</p>
+
+<h2>Project Structure</h2>
 <ul>
-    <li>Search for videos by keywords</li>
-    <li>Display a list of search results with video thumbnails, titles, and descriptions</li>
-    <li>Play videos in a responsive video player</li>
-    <li>Show video details, such as views and likes</li>
-    <li>Display related videos based on the currently playing video</li>
-</ul>
-<h2>Technologies Used</h2>
-<ul>
-    <li>React JS</li>
-    <li>Tailwind CSS</li>
-    <li>YouTube API from RapidAPI</li>
-</ul>
-<h2>Installation</h2>
-<ol>
-    <li>Clone or download this repository to your local machine.</li>
-    <li>Install the dependencies: <code>npm install</code></li>
-    <li>Sign up for an account on RapidAPI:
-    <ul>
-        <li>Go to <a href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and sign up or log in if you already have an account.</li>
-        <li>Once logged in, search for the "YouTube API" by Glavier <a href="https://rapidapi.com/Glavier/api/youtube138/" target="_blank">YouTube API</a> and subscribe to the API.</li>
-        <li>After subscribing, you'll be able to access your API key.</li>
-    </ul></li>
-    <li>Set up the YouTube API key:
-    <ul>
-        <li>In the root directory of your project, create a file named <code>.env</code></li>
-        <li>Open the .env file and add the following line: <br><code>REACT_APP_YOUTUBE_API_KEY=YOUR_API_KEY</code> <br>Replace YOUR_API_KEY with your actual API key obtained from RapidAPI.</li>
-    </ul></li>
-    <li>Start the development server: <code>npm start</code></li>
-    <li>Open your browser and navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to see the YouTube clone in action.</li>
-</ol>
-<h2>Usage</h2>
-<ul>
-    <li>Enter search keywords in the search bar to look for videos.</li>
-    <li>Click on a video thumbnail from the search results to play the video.</li>
-    <li>Interact with the video player using the available controls (play/pause, volume, seek).</li>
-    <li>Scroll down to view the video details and related videos.</li>
-</ul>
-<h2>Contributions</h2>
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-<ul>
-    <li>Fork the repository.</li>
-    <li>Create a new branch.</li>
-    <li>Make your changes and commit them.</li>
-    <li>Push your changes to your forked repository.</li>
-    <li>Submit a pull request describing the changes you've made.</li>
-</ul>
-<h2>Attribution</h2>
-<ul>
-    <li><a href="https://react.dev/" target="_blank">React JS</a></li>
-    <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Tailwind CSS</a></li>
-    <li><a href="https://rapidapi.com/hub" target="_blank">RapidAPI</a></li>
-    <li><a href="https://rapidapi.com/Glavier/api/youtube138/" target="_blank">YouTube API by Glavier</a></li>
+    <li><strong>main.py:</strong> The main FastAPI application that handles incoming requests and routes them to the appropriate intent handlers.</li>
+    <li><strong>generic_helper.py:</strong> A helper module containing utility functions for string manipulations and session ID extraction.</li>
+    <li><strong>db_helper.py:</strong> A database helper module for interacting with the MySQL database, including functions for inserting order items, tracking orders, and fetching order details.</li>
 </ul>
 
+<h2>Dependencies</h2>
+<p>To run this project, you need the following dependencies:</p>
+<ul>
+    <li>FastAPI</li>
+    <li>Uvicorn</li>
+    <li>mysql-connector-python</li>
+</ul>
+
+<h2>Installation</h2>
+<ol>
+    <li>Clone the repository:</li>
+    <pre><code>git clone &lt;repository-url&gt;</code></pre>
+    <li>Navigate to the project directory:</li>
+    <pre><code>cd &lt;project-directory&gt;</code></pre>
+    <li>Install the required dependencies:</li>
+    <pre><code>pip install -r requirements.txt</code></pre>
+    <li>Ensure MySQL is installed and running, and update the database connection details in <code>db_helper.py</code>:</li>
+    <pre><code>cnx = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="your_password",
+    database="your_database"
+)</code></pre>
+</ol>
+
+<h2>Usage</h2>
+<ol>
+    <li>Start the FastAPI server:</li>
+    <pre><code>uvicorn main:app --reload</code></pre>
+    <li>Integrate the webhook URL with your Dialogflow agent.</li>
+    <li>Interact with the chatbot through the Dialogflow interface or any integrated platform (e.g., Google Assistant).</li>
+</ol>
+
+<h2>Intent Handlers</h2>
+<ul>
+    <li><strong>add_to_order:</strong> Adds specified food items and quantities to the current order.</li>
+    <li><strong>remove_from_order:</strong> Removes specified food items from the current order.</li>
+    <li><strong>complete_order:</strong> Completes the current order, saves it to the database, and provides the order total and ID.</li>
+    <li><strong>track_order:</strong> Tracks the status of a given order ID.</li>
+</ul>
+
+<h2>Database Procedures</h2>
+<p>The MySQL database includes the following stored procedures:</p>
+<ul>
+    <li><code>insert_order_item(food_item, quantity, order_id):</code> Inserts an item into the order.</li>
+    <li><code>insert_order_tracking(order_id, status):</code> Inserts an order status into the tracking table.</li>
+    <li><code>get_total_order_price(order_id):</code> Returns the total price for the specified order.</li>
+    <li><code>get_order_status(order_id):</code> Returns the status of the specified order.</li>
+</ul>
+
+<h2>Deployment</h2>
+<p>This project is successfully working and has been integrated on an html web page</p>
+
+</body>
+</html>
