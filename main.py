@@ -1,5 +1,3 @@
-# Author: Dhaval Patel. Codebasics YouTube Channel
-
 from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import JSONResponse
@@ -12,11 +10,8 @@ inprogress_orders = {}
 
 @app.post("/")
 async def handle_request(request: Request):
-    # Retrieve the JSON data from the request
+   
     payload = await request.json()
-
-    # Extract the necessary information from the payload
-    # based on the structure of the WebhookRequest from Dialogflow
     intent = payload['queryResult']['intent']['displayName']
     parameters = payload['queryResult']['parameters']
     output_contexts = payload['queryResult']['outputContexts']
@@ -34,7 +29,7 @@ async def handle_request(request: Request):
 def save_to_db(order: dict):
     next_order_id = db_helper.get_next_order_id()
 
-    # Insert individual items along with quantity in orders table
+    
     for food_item, quantity in order.items():
         rcode = db_helper.insert_order_item(
             food_item,
@@ -45,7 +40,7 @@ def save_to_db(order: dict):
         if rcode == -1:
             return -1
 
-    # Now insert order tracking status
+   
     db_helper.insert_order_tracking(next_order_id, "in progress")
 
     return next_order_id
@@ -57,8 +52,7 @@ def complete_order(parameters: dict, session_id: str):
         order = inprogress_orders[session_id]
         order_id = save_to_db(order)
         if order_id == -1:
-            # fulfillment_text = "Sorry, I couldn't process your order due to a backend error. " \
-            #                    "Please place a new order again"
+          
             order_total = db_helper.get_total_order_price(order_id)
 
             fulfillment_text = f"Awesome. We have placed your order. " \
