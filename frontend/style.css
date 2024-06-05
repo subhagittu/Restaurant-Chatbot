@@ -77,8 +77,8 @@ body {
   position: fixed;
   bottom: 20px; /* Adjust the distance from the bottom as needed */
   right: 20px; /* Adjust the distance from the right as needed */
-  width: 360px; /* Adjust the width as needed */
-  height: 440px; /* Adjust the height as needed */
+  width: 20%; /* Adjust the width as needed */
+  height: 50%; /* Adjust the height as needed */
   background-color: #f0f0f0; /* Background color */
   /* border: 2px solid #000; Black border */
   padding: 5px; /* Padding inside the box */
