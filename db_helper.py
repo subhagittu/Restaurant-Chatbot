@@ -1,7 +1,7 @@
 import mysql.connector
 global cnx
 
-cnx = mysql.connector.connect(
+cnx = mysql.connector.connect( 
     host="localhost",
     user="root",
     password="Pencil2026*",
