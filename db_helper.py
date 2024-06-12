@@ -1,5 +1,5 @@
 import mysql.connector
-global cnx
+global cnx 
 
 cnx = mysql.connector.connect( 
     host="localhost",
