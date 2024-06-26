@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/f5/19/fa/f519fa0027e85dd0d0c4ec54a17bd563.jpg">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #010f1c;
+            font-family: "Jost", sans-serif;
+            ;
+        }
+
+        body {
+            background: url('https://wallpapers.com/images/featured/food-4k-1pf6px6ryqfjtnyr.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.58); /* Adjust the alpha value to make it more or less white */
+            z-index: -1;
+        }
+        
+        section {
+            border-radius: 50px;
+            max-width: 95%;
+            max-height: 90vh;
+            width: 600px;
+            background: #cdd7e3e0;
+            padding: 50px;
+            overflow-y: auto;
+            border: 10px solid #097eff33;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex input {
+            border: none;
+            outline: none;
+            padding: 0px 20px;
+            height: 50px;
+            width: 100%;
+            border: 1px solid #e8e8e8;
+        }
+
+        .m10 {
+            margin-top: 10px;
+
+        }
+
+        .m20 {
+            margin-top: 20px;
+        }
+
+        button {
+            width: 200px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            height: 50px;
+            background: #0989ff;
+            color: #fff;
+            padding: 0px 20px;
+
+        }
+
+        input:focus {
+            border: 1px solid #0989ff;
+        }
+
+        button:hover {
+            background: #0870d0;
+        }
+
+        .get_qr {
+
+            height: 200px;
+            width: 200px;
+            border: 1px solid #999;
+            background: #efefef;
+        }
+
+        .qr_code {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        p {
+            color: #7a7a7a;
+            font-size: 16px;
+            line-height: 24px
+        }
+
+        .im {
+            max-width: 100%;
+            width: 300px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".generate_qr").click(function() {
+                $(".form").hide();
+                $(".qr_code").show();
+                var num = $(".number").val();
+                var link = "upi://pay?pa=onkarjha2003@sbi%26am=1500%26tn=" + num;
+                var upi = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + link;
+                console.log(upi);
+                $(".get_qr").attr("src", upi);
+            });
+            $(".download_now").click(function() {
+                var name = $(".name").val();
+                var num = $(".number").val();
+                var email = $(".email").val();
+                var id = $(".id").val();
+                if (num != "" && name != "" && email != "" && id != "") {
+                    $.post("chatbot4\back.php",{name:name,num:num,email:email,id:id},function(res) {
+                    	if(res==1){
+
+                    	}
+                    	else{
+
+                    	}
+                    });
+                } else {
+                    alert("Fill all fields correctly");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section>
+        <h1 style="text-align: center;">Thanks for Choosing Us!</h1>
+        <div class="form">
+            <div class="flex m20">
+                <label>Full Name<span style="color: red;">*</span></label>
+                <input type="text" name="name" placeholder="Full Name" class="m10 name">
+            </div>
+            <div class="flex m20">
+                <label>Whatsapp Number (With ISD)<span style="color: red;">*</span></label>
+                <input type="text" name="phone" placeholder="Eg - +919064973840" class="m10 number">
+            </div>
+            <div class="flex m20">
+                <label>Email<span style="color: red;">*</span></label>
+                <input type="email" name="email" placeholder="Email" class="m10 email">
+            </div>
+            <div class="flex m20">
+                <label>Amount<span style="color: red;">*</span></label>
+                <input type="email" name="email" placeholder="Enter Amount (INR)" class="m10 email">
+            </div>
+            <div class="flex m20">
+
+                <button class="generate_qr">NEXT</button>
+            </div>
+        </div>
+        <div class="qr_code m20">
+            <p style="text-align: center;">Scan the QR Code with any UPI App and pay!</p>
+            <center><img src="payment.jpg" alt="QR CODE" width="200" alt="QR CODE" class=""></center> <!-- get_qr m10 -->
+            <center><img src="https://imatrivandrum.org/wp-content/uploads/2023/01/IMA-Trivandrum-payments.png" class="im m10"></center>
+            <!-- <div class="flex m20">
+                <label>UTR/REFERENCE/TRANSACTION ID**</label>
+                <input type="number" name="email" placeholder="UTR/REFERENCE/TRANSACTION ID**" class="m10 id">
+            </div> -->
+            <a href="index.html"><button>HOME PAGE</button></a><!-- class="download_now m20" -->
+        </div>
+    </section>
+</body>
+
+</html>
