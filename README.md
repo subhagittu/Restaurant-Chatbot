@@ -70,6 +70,9 @@
 
 <h2>Deployment</h2>
 <p>This project is successfully working and has been integrated on an html web page</p>
+<img width="960" alt="yt_clone" src="https://github.com/subhagittu/Restaurant-Chatbot/blob/acaee25a8d36127dd24fe3248821438b670895e6/chatbot_ss.png">
+<img width="960" alt="yt_clone" src="https://github.com/subhagittu/Restaurant-Chatbot/blob/acaee25a8d36127dd24fe3248821438b670895e6/chatbot_ss_1.png">
+<img width="960" alt="yt_clone" src="https://github.com/subhagittu/Restaurant-Chatbot/blob/acaee25a8d36127dd24fe3248821438b670895e6/chatbot_ss_2.png">
 
 </body>
 </html>
