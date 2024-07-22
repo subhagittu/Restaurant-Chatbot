@@ -957,7 +957,7 @@ form .btn button:hover{
   flex-direction: column;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 400px) {
   .container_1{
     position: relative;
     width: 100%;
