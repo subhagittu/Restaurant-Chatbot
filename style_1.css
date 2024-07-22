@@ -1,0 +1,22 @@
+@media screen and (max-width: 500px){
+    section {
+        border-radius: 50px;
+        /* width: 950px; */
+        height: 1500px;
+        width: 900px;
+        background: #030c16e0;
+        padding: 50px;
+        overflow-y: auto;
+        border: 10px solid #097eff33;
+    }
+
+    .flex input {
+        border: none;
+        outline: none;
+        padding: 0px 20px;
+        height: 100px;
+        width: 100%;
+        border: 1px solid #e8e8e8;
+    }
+
+}
